@@ -16,7 +16,7 @@ const Track = () => {
     if (inputNo) {
       (async () => {
         const data = await fetch(trackApi).then((response) => response.json());
-        //   .catch((error) => console.log("Error: ", error));
+        // .catch((error) => console.log("Error: ", error));
         setFetchedData(data);
       })();
     }
@@ -45,7 +45,10 @@ const Track = () => {
     let hours = Number(string.slice(11, 13));
     let minutes = string.slice(14, 16);
     let ampm = hours >= 12 ? "pm" : "am";
-    let timeStr = hours > 12 ? hours-12 + ":" + minutes + " " + ampm : hours + ":" + minutes + " " + ampm;
+    let timeStr =
+      hours > 12
+        ? hours - 12 + ":" + minutes + " " + ampm
+        : hours + ":" + minutes + " " + ampm;
     return timeStr;
   };
 
@@ -66,27 +69,35 @@ const Track = () => {
             value={inputValue}
             onChange={handleChange}
           />
-          {/* <input /> */}
           <Button variant="danger" onClick={searchBtn} disabled={!inputValue}>
             <span className="material-symbols-outlined">search</span>
           </Button>
         </div>
-        {/* <button >
-          Search
-        </button> */}
       </div>
-      <TrackDetails
-        fetchedData={fetchedData ? fetchedData : false}
-        handleDate={handleDate}
-        handleTime={handleTime}
-        handleString={handleString}
-      />
-      <TrackTable
-        fetchedData={fetchedData ? fetchedData : false}
-        handleString={handleString}
-        handleDate={handleDate}
-        handleTime={handleTime}
-      />
+      {fetchedData.error ? (
+        <div className="center">
+          <h3>Tracking No. {inputNo} does not exist</h3>
+          <p>Wrong Tracking No. please try again!</p>
+        </div>
+      ) : fetchedData ? (
+        <div>
+          <TrackDetails
+            fetchedData={fetchedData ? fetchedData : false}
+            handleDate={handleDate}
+            handleTime={handleTime}
+            handleString={handleString}
+          />
+          <TrackTable
+            fetchedData={fetchedData ? fetchedData : false}
+            handleString={handleString}
+            handleDate={handleDate}
+            handleTime={handleTime}
+          />
+        </div>
+      ) : (
+        ""
+      )}
+
       <TrackSVG />
     </div>
   );
