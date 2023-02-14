@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TrackNav from "./TrackNav";
 import TrackDetails from "./TrackDetails";
+import TrackProgress from "./TrackProgress";
 import TrackTable from "./TrackTable";
 import TrackSVG from "./TrackSVG";
 import Form from "react-bootstrap/Form";
@@ -78,6 +79,7 @@ const Track = () => {
         <div className="center">
           <h3>Tracking No. {inputNo} does not exist</h3>
           <p>Wrong Tracking No. please try again!</p>
+          <TrackSVG />
         </div>
       ) : fetchedData ? (
         <div>
@@ -87,6 +89,7 @@ const Track = () => {
             handleTime={handleTime}
             handleString={handleString}
           />
+          <TrackProgress fetchedData={fetchedData ? fetchedData : false}/>
           <TrackTable
             fetchedData={fetchedData ? fetchedData : false}
             handleString={handleString}
@@ -95,10 +98,8 @@ const Track = () => {
           />
         </div>
       ) : (
-        ""
+        <TrackSVG />
       )}
-
-      <TrackSVG />
     </div>
   );
 };

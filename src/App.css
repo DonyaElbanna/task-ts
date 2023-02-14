@@ -63,11 +63,16 @@ button.btn.btn-danger {
   font-size: 0px;
 }
 
-/* background */
+.track-img-container {
+  position: relative;
+  z-index: 1;
+}
+
 .tracking-image {
-  margin-top: 50px;
   width: 550px;
   left: 0;
+  top: 245px;
+  z-index: -1;
   position: absolute;
 }
 
@@ -83,13 +88,6 @@ table {
   margin: 6% 2%;
 }
 
-.track-table td,
-.track-table th {
-  /* border: 1px solid #dddddd; */
-  text-align: left;
-  padding: 10px 30px;
-}
-
 th {
   color: var(--thtext-color);
 }
@@ -100,10 +98,42 @@ th {
   color: #000;
 }
 
-/* tr:nth-child(even) {
-  background-color: #a73838;
-} */
+/* Progress bar */
+.track-progress {
+  width: 90%;
+  /* text-align: center; */
+  margin: auto;
+}
 
+.progress-des {
+  position: absolute;
+}
+
+.accomplished .check {
+  color: inherit;
+}
+
+.check {
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+/* Track table */
+.activity {
+  margin-top: 10%;
+}
+
+.track-table {
+  margin-bottom: 10%;
+}
+
+.track-table td,
+.track-table th {
+  text-align: left;
+  padding: 10px 30px;
+}
+
+/* MQ */
 @media only screen and (max-width: 992px) {
   .tracking-image {
     display: none;
@@ -127,3 +157,11 @@ th {
     margin-bottom: 20px;
   }
 }
+
+/* .transitionStep {
+  filter: grayscale(0);
+}
+
+.transitionStep.accomplished {
+  filter: grayscale(0);
+} */

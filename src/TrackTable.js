@@ -6,7 +6,7 @@ const TrackTable = ({ fetchedData, handleString, handleDate, handleTime }) => {
     <div>
       {fetchedData ? (
         <div>
-          <h5>Activity Log</h5>
+          <h5 className="activity">Activity Log</h5>
           <table className="track-table">
             <thead>
               <tr>
