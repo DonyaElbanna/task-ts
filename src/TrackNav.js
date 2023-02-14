@@ -73,7 +73,13 @@ const TrackNav = () => {
               <NavDropdown.Item href="#action/3.1">العربية</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">English</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://business.bosta.co/signin">Sign In</Nav.Link>
+            <Button
+              variant="outline-danger"
+              href="https://business.bosta.co/signin"
+              className="signin-btn"
+            >
+              Sign In
+            </Button>
             <Button
               href="https://business.bosta.co/signup"
               variant="outline-danger"

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
-/* .App {
-  height: 100%;
-} */
+.App {
+  margin: 0 2%;
+}
 
 :root {
   --text-color: #475467;
@@ -14,11 +14,26 @@
   font-family: var(--font-family);
 }
 
+.center {
+  text-align: center;
+}
+
 /* nav */
 .track-nav {
   font-size: 1.3em;
   font-weight: 700;
   margin-bottom: 5%;
+}
+
+.signin-btn {
+  color: inherit;
+  border-color: transparent;
+}
+
+.signin-btn:hover {
+  color: #dc3545;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 a.btn.btn-outline-danger {
@@ -27,27 +42,16 @@ a.btn.btn-outline-danger {
   font-weight: 700;
 }
 
-/* body */
-
-.center {
-  text-align: center;
-}
-
-/* .track-body {
-  
-} */
-
-.tracking-image {
-  margin-top: 50px;
-  width: 550px;
-  left: 0;
-  position: absolute;
-}
-
+/* search */
 .form {
   display: flex;
   width: 40%;
   margin: 2% auto 5%;
+}
+
+.material-symbols-outlined {
+  font-size: 30px;
+  color: #fff;
 }
 
 input.form-control {
@@ -56,12 +60,18 @@ input.form-control {
 
 button.btn.btn-danger {
   border-radius: 0 5px 5px 0;
+  font-size: 0px;
 }
 
-.tracking-data {
-  text-align: center;
+/* background */
+.tracking-image {
+  margin-top: 50px;
+  width: 550px;
+  left: 0;
+  position: absolute;
 }
 
+/* track-details */
 table {
   border-collapse: collapse;
   text-align: center;
@@ -76,7 +86,7 @@ table {
 .track-table td,
 .track-table th {
   /* border: 1px solid #dddddd; */
-  /* text-align: left; */
+  text-align: left;
   padding: 10px 30px;
 }
 
@@ -97,5 +107,23 @@ th {
 @media only screen and (max-width: 992px) {
   .tracking-image {
     display: none;
+  }
+  a.btn.btn-outline-danger {
+    width: 70%;
+    margin: auto;
+  }
+  .signin-btn {
+    color: inherit;
+    border-color: var(--text-color);
+  }
+
+  .signin-btn:hover {
+    color: #fff;
+    border-color: var(--text-color);
+    background-color: var(--text-color);
+  }
+
+  a.signin-btn.btn.btn-outline-danger {
+    margin-bottom: 20px;
   }
 }

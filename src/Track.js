@@ -40,9 +40,13 @@ const Track = () => {
   const handleDate = (string) => {
     return string.slice(0, 10).split("-").reverse().join("-");
   };
-
   const handleTime = (string) => {
-    return string.slice(11, 16);
+    // return string.slice(11, 16);
+    let hours = Number(string.slice(11, 13));
+    let minutes = string.slice(14, 16);
+    let ampm = hours >= 12 ? "pm" : "am";
+    let timeStr = hours > 12 ? hours-12 + ":" + minutes + " " + ampm : hours + ":" + minutes + " " + ampm;
+    return timeStr;
   };
 
   const handleString = (s) => {
@@ -51,7 +55,9 @@ const Track = () => {
 
   return (
     <div>
-      <div className="track-nav"><TrackNav /></div>
+      <div className="track-nav">
+        <TrackNav />
+      </div>
       <div className="center">
         <h2>Track your shipment</h2>
         <div className="form">
@@ -62,7 +68,7 @@ const Track = () => {
           />
           {/* <input /> */}
           <Button variant="danger" onClick={searchBtn} disabled={!inputValue}>
-            Search
+            <span className="material-symbols-outlined">search</span>
           </Button>
         </div>
         {/* <button >

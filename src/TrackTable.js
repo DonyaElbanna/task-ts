@@ -1,11 +1,12 @@
 import React from "react";
 
 const TrackTable = ({ fetchedData, handleString, handleDate, handleTime }) => {
+
   return (
     <div>
       {fetchedData ? (
         <div>
-            <h4>Activity Log</h4>
+          <h5>Activity Log</h5>
           <table className="track-table">
             <thead>
               <tr>
