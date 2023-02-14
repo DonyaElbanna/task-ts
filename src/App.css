@@ -1,38 +1,101 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+/* .App {
+  height: 100%;
+} */
+
+:root {
+  --text-color: #475467;
+  --thtext-color: #676c739c;
+  --font-family: "Cairo", sans-serif;
+}
+
+* {
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+/* nav */
+.track-nav {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 5%;
+}
+
+a.btn.btn-outline-danger {
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+/* body */
+
+.center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* .track-body {
+  
+} */
+
+.tracking-image {
+  margin-top: 50px;
+  width: 550px;
+  left: 0;
+  position: absolute;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 40%;
+  margin: 2% auto 5%;
 }
 
-.App-link {
-  color: #61dafb;
+input.form-control {
+  border-radius: 5px 0 0 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+button.btn.btn-danger {
+  border-radius: 0 5px 5px 0;
+}
+
+.tracking-data {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.track-details {
+  width: 98%;
+  margin: 6% 2%;
+}
+
+.track-table td,
+.track-table th {
+  /* border: 1px solid #dddddd; */
+  /* text-align: left; */
+  padding: 10px 30px;
+}
+
+th {
+  color: var(--thtext-color);
+}
+
+.track-details td {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #000;
+}
+
+/* tr:nth-child(even) {
+  background-color: #a73838;
+} */
+
+@media only screen and (max-width: 992px) {
+  .tracking-image {
+    display: none;
   }
 }
