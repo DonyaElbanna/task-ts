@@ -4,13 +4,14 @@
 }
 
 :root {
-  --text-color: #475467;
+  --text-color: hsl(216, 18%, 34%);
   --thtext-color: #676c739c;
   --font-family: "Cairo", sans-serif;
+  --green: #26a65b;
 }
 
 * {
-  color: var(--text-color);
+  /* color: var(--text-color); */
   font-family: var(--font-family);
 }
 
@@ -100,22 +101,43 @@ th {
 
 /* Progress bar */
 .track-progress {
-  width: 90%;
+  width: 85%;
   /* text-align: center; */
-  margin: auto;
+  margin: 5%;
 }
 
 .progress-des {
   position: absolute;
+  width: max-content;
+  margin-top: 2.5rem;
+  text-align: center;
 }
 
-.accomplished .check {
-  color: inherit;
+.progress-details {
+  color: red;
+  display: block;
 }
+
+/* .accomplished .check {
+  color: var(--green);
+} */
 
 .check {
   background-color: #fff;
   border-radius: 30px;
+  color: rgb(182, 182, 182);
+}
+
+.accomplished .delivered {
+  color: var(--green);
+}
+
+.accomplished .returned {
+  color: red;
+}
+
+.accomplished .pending {
+  color: gray;
 }
 
 /* Track table */
@@ -131,6 +153,20 @@ th {
 .track-table th {
   text-align: left;
   padding: 10px 30px;
+}
+
+/* warning */
+.warning-container {
+  margin: 50px 100px;
+}
+
+.warning-msg {
+  display: flex;
+}
+
+.warning {
+  color: red;
+  margin-top: -2px;
 }
 
 /* MQ */
@@ -165,3 +201,9 @@ th {
 .transitionStep.accomplished {
   filter: grayscale(0);
 } */
+
+.indexedStep.accomplished {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-evenly;
+}

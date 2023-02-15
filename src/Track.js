@@ -76,9 +76,14 @@ const Track = () => {
         </div>
       </div>
       {fetchedData.error ? (
-        <div className="center">
-          <h3>Tracking No. {inputNo} does not exist</h3>
-          <p>Wrong Tracking No. please try again!</p>
+        <div className="center warning-container">
+          <h5>Tracking No. {inputNo}</h5>
+          <p className="warning-msg">
+            <span className="material-symbols-sharp warning">error</span>No record of
+            this tracking number can be found at this time, please check the
+            number and try again later. For further assistance, please contact
+            Customer Service.
+          </p>
           <TrackSVG />
         </div>
       ) : fetchedData ? (
@@ -89,7 +94,7 @@ const Track = () => {
             handleTime={handleTime}
             handleString={handleString}
           />
-          <TrackProgress fetchedData={fetchedData ? fetchedData : false}/>
+          <TrackProgress fetchedData={fetchedData ? fetchedData : false} />
           <TrackTable
             fetchedData={fetchedData ? fetchedData : false}
             handleString={handleString}

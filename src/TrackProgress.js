@@ -4,13 +4,8 @@ import { ProgressBar, Step } from "react-step-progress-bar";
 
 const TrackProgress = ({ fetchedData }) => {
   const status = fetchedData.CurrentStatus.state;
-  console.log(status);
-//   const transitionStyles = {
-//     entering: { transform: "scale(1.5)" },
-//     entered: { transform: "scale(1)" },
-//     exiting: { transform: "scale(1.5)" },
-//     exited: { transform: "scale(1)" }
-//   };
+  // console.log(status);
+
   return (
     <div className="track-progress">
       <ProgressBar
@@ -21,21 +16,22 @@ const TrackProgress = ({ fetchedData }) => {
             ? "red"
             : "orange"
         }
-        percent={status === "DELIVERED" ? 100 : 67}
+        percent={status.includes("DELIVERED" || "DELIVERY") ? 100 : 67}
       >
         <Step>
           {({ accomplished }) => (
-            <div className={`indexedStep ${accomplished ? "accomplished" : ''}`}>
+            <div
+              className={`indexedStep ${accomplished ? "accomplished" : ""}`}
+            >
               <span
-                className="material-symbols-outlined check"
-                // style={{
-                //   color:
-                //     status === "DELIVERED"
-                //       ? "#26a65b"
-                //       : status.includes("SENDER")
-                //       ? "red"
-                //       : "orange",
-                // }}
+                className={
+                  "material-symbols-outlined check" +
+                  (status === "DELIVERED"
+                    ? " delivered"
+                    : status.includes("SENDER")
+                    ? " returned"
+                    : " pending")
+                }
               >
                 check_circle
               </span>
@@ -45,17 +41,18 @@ const TrackProgress = ({ fetchedData }) => {
         </Step>
         <Step>
           {({ accomplished, index }) => (
-            <div className={`indexedStep ${accomplished ? "accomplished" : ''}`}>
+            <div
+              className={`indexedStep ${accomplished ? "accomplished" : ""}`}
+            >
               <span
-                className="material-symbols-outlined check"
-                // style={{
-                //   color:
-                //     status === "DELIVERED"
-                //       ? "#26a65b"
-                //       : status.includes("SENDER")
-                //       ? "red"
-                //       : "orange",
-                // }}
+                className={
+                  "material-symbols-outlined check" +
+                  (status === "DELIVERED"
+                    ? " delivered"
+                    : status.includes("SENDER")
+                    ? " returned"
+                    : " pending")
+                }
               >
                 check_circle
               </span>
@@ -65,41 +62,59 @@ const TrackProgress = ({ fetchedData }) => {
         </Step>
         <Step>
           {({ accomplished, index }) => (
-            <div className={`indexedStep ${accomplished ? "accomplished" : ''}`}>
-              <span
-                className="material-symbols-outlined check"
-                // style={{
-                //   color:
-                //     status === "DELIVERED"
-                //       ? "#26a65b"
-                //       : status.includes("SENDER")
-                //       ? "red"
-                //       : "orange",
-                // }}
-              >
-                check_circle
-              </span>
+            <div
+              className={`indexedStep ${
+                accomplished ? "accomplished" : "failed"
+              }`}
+            >
+              {status.includes("DELIVERY") ? (
+                <span className="material-symbols-outlined">
+                  local_shipping
+                </span>
+              ) : (
+                <span
+                  className={
+                    "material-symbols-outlined check" +
+                    (status === "DELIVERED"
+                      ? " delivered"
+                      : status.includes("SENDER")
+                      ? " returned"
+                      : " pending")
+                  }
+                >
+                  check_circle
+                </span>
+              )}
+
               <p className="progress-des">Package Out to Delivery</p>
             </div>
           )}
         </Step>
         <Step>
           {({ accomplished, transitionState, index }) => (
-            <div className={`indexedStep ${accomplished ? "accomplished" : ''}`}>
+            <div
+              className={`indexedStep ${accomplished ? "accomplished" : ""}`}
+            >
               <span
-                className="material-symbols-outlined check"
-                // style={{
-                //   color:
-                //     status === "DELIVERED"
-                //       ? "#26a65b"
-                //       : status.includes("SENDER")
-                //       ? "red"
-                //       : "orange",
-                // }}
+                className={
+                  "material-symbols-outlined check" +
+                  (status === "DELIVERED"
+                    ? " delivered"
+                    : status.includes("SENDER")
+                    ? " returned"
+                    : " pending")
+                }
               >
                 check_circle
               </span>
-              <p className="progress-des">{status.includes("SENDER") ? 'Package Returned' : 'Package Delivered'}</p>
+              {status !== ("DELIVERED") ? (
+                <p className="progress-des">
+                  Package Returned
+                  <span className="progress-details">Package rejected by Customer</span>
+                </p>
+              ) : (
+                <p className="progress-des">Package Delivered</p>
+              )}
             </div>
           )}
         </Step>
