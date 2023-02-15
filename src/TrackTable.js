@@ -1,19 +1,24 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-const TrackTable = ({ fetchedData, handleString, handleDate, handleTime }) => {
+const TrackTable = ({ fetchedData, handleDate, handleTime }) => {
+  const { t, i18n } = useTranslation();
 
   return (
-    <div>
+    <>
       {fetchedData ? (
         <div>
-          <h5 className="activity">Activity Log</h5>
-          <table className="track-table">
+          <h5 className="activity">{t("activity")}</h5>
+          <table
+            className="track-table"
+            style={{ textAlign: i18n.language === "ar" ? "right" : "left" }}
+          >
             <thead>
               <tr>
-                <th>Hub</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Details</th>
+                <th>{t("hub")}</th>
+                <th>{t("date")}</th>
+                <th>{t("time")}</th>
+                <th>{t("details")}</th>
               </tr>
             </thead>
             <tbody>
@@ -22,10 +27,14 @@ const TrackTable = ({ fetchedData, handleString, handleDate, handleTime }) => {
                 // .slice(0).reverse()
                 .map((event, i) => (
                   <tr key={i}>
-                    <td>{event.hub && event.hub}</td>
+                    <td>{event.hub && t(event.hub)}</td>
                     <td>{handleDate(event.timestamp)}</td>
-                    <td>{handleTime(event.timestamp)}</td>
-                    <td>{handleString(event.state)}</td>
+                    <td>
+                      {i18n.language === "ar"
+                        ? handleTime(event.timestamp).split(" ")
+                        : handleTime(event.timestamp)}
+                    </td>
+                    <td>{t(event.state)}</td>
                   </tr>
                 ))}
             </tbody>
@@ -34,7 +43,7 @@ const TrackTable = ({ fetchedData, handleString, handleDate, handleTime }) => {
       ) : (
         ""
       )}
-    </div>
+    </>
   );
 };
 

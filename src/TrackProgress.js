@@ -1,10 +1,13 @@
 import React from "react";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
+import { useTranslation } from "react-i18next";
 
 const TrackProgress = ({ fetchedData }) => {
   const status = fetchedData.CurrentStatus.state;
   // console.log(status);
+  const { t } = useTranslation();
+  // document.body.dir = i18n.dir()
 
   return (
     <div className="track-progress">
@@ -16,7 +19,7 @@ const TrackProgress = ({ fetchedData }) => {
             ? "red"
             : "orange"
         }
-        percent={status.includes("DELIVERED" || "DELIVERY") ? 100 : 67}
+        percent={status === "DELIVERED" ? 100 : 67}
       >
         <Step>
           {({ accomplished }) => (
@@ -35,7 +38,7 @@ const TrackProgress = ({ fetchedData }) => {
               >
                 check_circle
               </span>
-              <p className="progress-des">Package Created</p>
+              <p className="progress-des">{t("pkgcrtd")}</p>
             </div>
           )}
         </Step>
@@ -56,7 +59,7 @@ const TrackProgress = ({ fetchedData }) => {
               >
                 check_circle
               </span>
-              <p className="progress-des">Package Received from Provider</p>
+              <p className="progress-des">{t("pkgrcvd")}</p>
             </div>
           )}
         </Step>
@@ -64,14 +67,14 @@ const TrackProgress = ({ fetchedData }) => {
           {({ accomplished, index }) => (
             <div
               className={`indexedStep ${
-                accomplished ? "accomplished" : "failed"
+                accomplished ? "accomplished" : ""
               }`}
             >
-              {status.includes("DELIVERY") ? (
+              {/* {status.includes("DELIVERY") ? (
                 <span className="material-symbols-outlined">
                   local_shipping
                 </span>
-              ) : (
+              ) : ( */}
                 <span
                   className={
                     "material-symbols-outlined check" +
@@ -84,14 +87,14 @@ const TrackProgress = ({ fetchedData }) => {
                 >
                   check_circle
                 </span>
-              )}
+              {/* )} */}
 
-              <p className="progress-des">Package Out to Delivery</p>
+              <p className="progress-des">{t("dlvrpkg")}</p>
             </div>
           )}
         </Step>
         <Step>
-          {({ accomplished, transitionState, index }) => (
+          {({ accomplished, index }) => (
             <div
               className={`indexedStep ${accomplished ? "accomplished" : ""}`}
             >
@@ -107,14 +110,17 @@ const TrackProgress = ({ fetchedData }) => {
               >
                 check_circle
               </span>
-              {status !== ("DELIVERED") ? (
+              {/* {status !== "DELIVERED" ? (
                 <p className="progress-des">
                   Package Returned
-                  <span className="progress-details">Package rejected by Customer</span>
+                  <span className="progress-details">
+                    Package rejected by Customer
+                  </span>
                 </p>
               ) : (
-                <p className="progress-des">Package Delivered</p>
-              )}
+                <p className="progress-des">{t("pkgdlvrd")}</p>
+              )} */}
+              <p className="progress-des">{t('pkgdlvrd')}</p>
             </div>
           )}
         </Step>
