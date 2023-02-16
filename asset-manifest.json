@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bosta-task-ts/static/css/main.917920d3.css",
+    "main.js": "/bosta-task-ts/static/js/main.f61e4ae2.js",
+    "index.html": "/bosta-task-ts/index.html",
+    "main.917920d3.css.map": "/bosta-task-ts/static/css/main.917920d3.css.map",
+    "main.f61e4ae2.js.map": "/bosta-task-ts/static/js/main.f61e4ae2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.917920d3.css",
+    "static/js/main.f61e4ae2.js"
+  ]
+}
