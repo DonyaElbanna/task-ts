@@ -131,6 +131,7 @@ table {
 
 th {
   color: var(--thtext-color);
+  vertical-align: top;
 }
 
 .track-details td {
@@ -284,12 +285,28 @@ h5 {
 }
 
 @media only screen and (max-width: 730px) {
+  * {
+    font-size: 0.95rem;
+  }
+  .progress-des {
+    width: fit-content;
+  }
   table {
     margin: auto;
     width: 100%;
   }
   .track-table td,
   .track-table th {
-    padding: 7px 10px;
+    padding: 7px 5px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  * {
+    font-size: 0.7rem;
+  }
+  .track-table td,
+  .track-table th {
+    padding: 7px 3px;
   }
 }
