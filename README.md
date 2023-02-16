@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-A simple web applet to track your package by its tracking no.
+A simple web applet to track your package by its tracking no. with an Ar-En display language feature.
 
 ## Technologies used
 
