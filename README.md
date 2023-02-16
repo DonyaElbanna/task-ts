@@ -13,6 +13,7 @@ A simple web applet to track your package by its tracking no.
 - [react-bootstrap](https://react-bootstrap.github.io/)
 - [i18next](https://react.i18next.com/)
 - [react-step-progress-bar](https://www.npmjs.com/package/react-step-progress-bar)
+- [React-TypeScript](https://www.typescriptlang.org/docs/handbook/react.html)
 
 ## Available Scripts
 

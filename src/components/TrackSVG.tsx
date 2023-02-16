@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 
-const TrackSVG = () => {
+const TrackSVG = (): JSX.Element => {
   return (
     <div>
       <svg

@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Toast from "react-bootstrap/Toast";
 import { useTranslation } from "react-i18next";
 
-const Track = () => {
+const Track = (): JSX.Element => {
   const [inputValue, setInputValue] = useState("");
   const [inputNo, setInputNo] = useState("");
   const [fetchedData, setFetchedData] = useState("");
@@ -26,7 +26,7 @@ const Track = () => {
     }
   }, [inputNo, trackApi]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setInputValue(e.target.value);
   };
 
@@ -41,10 +41,10 @@ const Track = () => {
       setInputValue("");
     }
   };
-  const handleDate = (string) => {
+  const handleDate = (string: string) => {
     return string.slice(0, 10).split("-").reverse().join("-");
   };
-  const handleTime = (string) => {
+  const handleTime = (string: string) => {
     // return string.slice(11, 16);
     let hours = Number(string.slice(11, 13));
     let minutes = string.slice(14, 16);
@@ -58,12 +58,13 @@ const Track = () => {
     return timeStr;
   };
 
-  const handleString = (s) => {
-    return s.split("_").join(" ");
-  };
+  // const handleString = (s: string) => {
+  //   return s.split("_").join(" ");
+  // };
+
   const { t, i18n } = useTranslation();
   document.body.dir = i18n.dir();
-  // console.log(i18n.language);
+  // console.log(Object.keys(fetchedData).length);
   return (
     <div>
       <div className="track-nav">
@@ -95,17 +96,17 @@ const Track = () => {
           </Button>
         </div>
       </div>
-          <Toast
-            onClose={() => setShowToast(false)}
-            show={showToast}
-            delay={2000}
-            autohide
-          >
-            <Toast.Header>
-              <strong className="me-auto">{t('inpterr')}</strong>
-            </Toast.Header>
-          </Toast>
-      {fetchedData.error ? (
+      <Toast
+        onClose={() => setShowToast(false)}
+        show={showToast}
+        delay={2000}
+        autohide
+      >
+        <Toast.Header>
+          <strong className="me-auto">{t("inpterr")}</strong>
+        </Toast.Header>
+      </Toast>
+      {Object.keys(fetchedData).length === 2 ? (
         <div className="center warning-container">
           <h5>
             {t("trno")} {inputNo}
@@ -122,7 +123,6 @@ const Track = () => {
             fetchedData={fetchedData ? fetchedData : false}
             handleDate={handleDate}
             handleTime={handleTime}
-            handleString={handleString}
           />
           <TrackProgress fetchedData={fetchedData ? fetchedData : false} />
           <div className="track-body">

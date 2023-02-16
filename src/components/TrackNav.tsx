@@ -6,9 +6,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import { useTranslation } from "react-i18next";
 
-const TrackNav = () => {
+const TrackNav = (): JSX.Element => {
   const { t, i18n } = useTranslation();
-  const changeLanguage = (lng) => {
+  const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
   // console.log(i18n.language);

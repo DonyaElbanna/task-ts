@@ -1,20 +1,35 @@
-import React from "react";
+// import React from "react";
 import { useTranslation } from "react-i18next";
+
+interface Props {
+  fetchedData?:
+    | any
+    | {
+        CurrentStatus: {
+          state: string;
+          timestamp: string;
+        };
+        TrackingNumber: string;
+        provider: string;
+        PromisedDate: string;
+      };
+  handleDate: Function;
+  handleTime: Function;
+}
 
 const TrackDetails = ({
   fetchedData,
-  handleString,
   handleDate,
   handleTime,
-}) => {
+}: Props): JSX.Element => {
   const status = fetchedData.CurrentStatus;
 
-  const parseDate = (input) => {
+  const parseDate = (input: any) => {
     var parts = input.split("-");
     return new Date(parts[2], parts[1] - 1, parts[0]);
   };
 
-  const getDayName = (date, locale = "en-US") => {
+  const getDayName = (date: any, locale = "en-US") => {
     return date.toLocaleDateString(locale, { weekday: "long" });
   };
 

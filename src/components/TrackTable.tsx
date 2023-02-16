@@ -1,7 +1,27 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 
-const TrackTable = ({ fetchedData, handleDate, handleTime }) => {
+interface Props {
+  fetchedData?:
+    | any
+    | {
+        CurrentStatus: {
+          state: string;
+          timestamp: string;
+        };
+        TrackingNumber: string;
+        provider: string;
+        PromisedDate: string;
+        TransitEvents: any;
+      };
+  handleDate: Function;
+  handleTime: Function;
+}
+
+const TrackTable = ({
+  fetchedData,
+  handleDate,
+  handleTime,
+}: Props): JSX.Element => {
   const { t, i18n } = useTranslation();
   return (
     <>
@@ -24,7 +44,7 @@ const TrackTable = ({ fetchedData, handleDate, handleTime }) => {
               {fetchedData.TransitEvents
                 // to get reversed chronological order
                 // .slice(0).reverse()
-                .map((event, i) => (
+                .map((event: any, i: number) => (
                   <tr key={i}>
                     <td>{event.hub && t(event.hub)}</td>
                     <td>{handleDate(event.timestamp)}</td>

@@ -1,9 +1,19 @@
-import React from "react";
+// import React from "react";
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import { useTranslation } from "react-i18next";
 
-const TrackProgress = ({ fetchedData }) => {
+interface Props {
+  fetchedData?:
+    | any
+    | {
+        CurrentStatus: {
+          state: string;
+        };
+      };
+}
+
+const TrackProgress = ({ fetchedData }: Props): JSX.Element => {
   const status = fetchedData.CurrentStatus.state;
   // console.log(status);
   const { t } = useTranslation();
@@ -42,7 +52,7 @@ const TrackProgress = ({ fetchedData }) => {
           )}
         </Step>
         <Step>
-          {({ accomplished, index }) => (
+          {({ accomplished }) => (
             <div
               className={`indexedStep ${accomplished ? "accomplished" : ""}`}
             >
@@ -63,7 +73,7 @@ const TrackProgress = ({ fetchedData }) => {
           )}
         </Step>
         <Step>
-          {({ accomplished, index }) => (
+          {({ accomplished }) => (
             <div
               className={`indexedStep ${accomplished ? "accomplished" : ""}`}
             >
@@ -91,7 +101,7 @@ const TrackProgress = ({ fetchedData }) => {
           )}
         </Step>
         <Step>
-          {({ accomplished, index }) => (
+          {({ accomplished }) => (
             <div
               className={`indexedStep ${accomplished ? "accomplished" : ""}`}
             >
