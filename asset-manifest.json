@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/bosta-task-ts/static/css/main.917920d3.css",
-    "main.js": "/bosta-task-ts/static/js/main.f61e4ae2.js",
+    "main.css": "/bosta-task-ts/static/css/main.ba12fb3b.css",
+    "main.js": "/bosta-task-ts/static/js/main.48a07d7a.js",
     "index.html": "/bosta-task-ts/index.html",
-    "main.917920d3.css.map": "/bosta-task-ts/static/css/main.917920d3.css.map",
-    "main.f61e4ae2.js.map": "/bosta-task-ts/static/js/main.f61e4ae2.js.map"
+    "main.ba12fb3b.css.map": "/bosta-task-ts/static/css/main.ba12fb3b.css.map",
+    "main.48a07d7a.js.map": "/bosta-task-ts/static/js/main.48a07d7a.js.map"
   },
   "entrypoints": [
-    "static/css/main.917920d3.css",
-    "static/js/main.f61e4ae2.js"
+    "static/css/main.ba12fb3b.css",
+    "static/js/main.48a07d7a.js"
   ]
 }
