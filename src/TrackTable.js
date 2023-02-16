@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 
 const TrackTable = ({ fetchedData, handleDate, handleTime }) => {
   const { t, i18n } = useTranslation();
-
   return (
     <>
       {fetchedData ? (
@@ -34,7 +33,19 @@ const TrackTable = ({ fetchedData, handleDate, handleTime }) => {
                         ? handleTime(event.timestamp).split(" ")
                         : handleTime(event.timestamp)}
                     </td>
-                    <td>{t(event.state)}</td>
+                    <td>
+                      {t(event.state)}
+                      <p
+                        style={{
+                          color:
+                            fetchedData.CurrentStatus.state === "DELIVERED"
+                              ? "#26a65b"
+                              : "#dc3545",
+                        }}
+                      >
+                        {event.reason && t("reason")}
+                      </p>
+                    </td>
                   </tr>
                 ))}
             </tbody>

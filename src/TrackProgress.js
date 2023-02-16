@@ -7,7 +7,6 @@ const TrackProgress = ({ fetchedData }) => {
   const status = fetchedData.CurrentStatus.state;
   // console.log(status);
   const { t } = useTranslation();
-  // document.body.dir = i18n.dir()
 
   return (
     <div className="track-progress">
@@ -16,7 +15,7 @@ const TrackProgress = ({ fetchedData }) => {
           status === "DELIVERED"
             ? "#26a65b"
             : status.includes("SENDER")
-            ? "red"
+            ? "#dc3545"
             : "orange"
         }
         percent={status === "DELIVERED" ? 100 : 67}
@@ -66,27 +65,25 @@ const TrackProgress = ({ fetchedData }) => {
         <Step>
           {({ accomplished, index }) => (
             <div
-              className={`indexedStep ${
-                accomplished ? "accomplished" : ""
-              }`}
+              className={`indexedStep ${accomplished ? "accomplished" : ""}`}
             >
               {/* {status.includes("DELIVERY") ? (
                 <span className="material-symbols-outlined">
                   local_shipping
                 </span>
               ) : ( */}
-                <span
-                  className={
-                    "material-symbols-outlined check" +
-                    (status === "DELIVERED"
-                      ? " delivered"
-                      : status.includes("SENDER")
-                      ? " returned"
-                      : " pending")
-                  }
-                >
-                  check_circle
-                </span>
+              <span
+                className={
+                  "material-symbols-outlined check" +
+                  (status === "DELIVERED"
+                    ? " delivered"
+                    : status.includes("SENDER")
+                    ? " returned"
+                    : " pending")
+                }
+              >
+                check_circle
+              </span>
               {/* )} */}
 
               <p className="progress-des">{t("dlvrpkg")}</p>
@@ -110,17 +107,7 @@ const TrackProgress = ({ fetchedData }) => {
               >
                 check_circle
               </span>
-              {/* {status !== "DELIVERED" ? (
-                <p className="progress-des">
-                  Package Returned
-                  <span className="progress-details">
-                    Package rejected by Customer
-                  </span>
-                </p>
-              ) : (
-                <p className="progress-des">{t("pkgdlvrd")}</p>
-              )} */}
-              <p className="progress-des">{t('pkgdlvrd')}</p>
+              <p className="progress-des">{t("pkgdlvrd")}</p>
             </div>
           )}
         </Step>

@@ -8,10 +8,10 @@
   --thtext-color: #676c739c;
   --font-family: "Cairo", sans-serif;
   --green: #26a65b;
+  --red: #dc3545;
 }
 
 * {
-  /* color: var(--text-color); */
   font-family: var(--font-family);
 }
 
@@ -37,15 +37,24 @@
 }
 
 .signin-btn:hover {
-  color: #dc3545;
+  color: var(--red);
   background-color: transparent;
   border-color: transparent;
+  text-decoration: underline;
 }
 
 a.btn.btn-outline-danger {
   border-radius: 20px;
   font-size: 1em;
   font-weight: 700;
+}
+
+a.btn.btn-outline-danger:hover {
+  text-decoration: underline;
+}
+
+a.nav-link:hover {
+  color: var(--red);
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -59,6 +68,7 @@ a.btn.btn-outline-danger {
 ::after {
   margin: 0 5px;
 }
+
 /* search */
 .form {
   display: flex;
@@ -87,9 +97,24 @@ input.form-control {
 .tracking-image {
   width: 550px;
   left: 0;
-  top: 245px;
+  top: 300px;
   z-index: -1;
   position: absolute;
+}
+
+.fade.toast.show {
+  width: fit-content;
+  position: absolute;
+  top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.toast-header .btn-close {
+  margin: 0 5px;
 }
 
 /* track-details */
@@ -128,7 +153,7 @@ th {
 }
 
 .progress-details {
-  color: red;
+  color: var(--red);
   display: block;
 }
 
@@ -143,11 +168,17 @@ th {
 }
 
 .accomplished .returned {
-  color: red;
+  color: var(--red);
 }
 
 .accomplished .pending {
   color: gray;
+}
+
+.indexedStep {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 /* Track body */
@@ -172,9 +203,11 @@ h5 {
 .track-table th {
   padding: 10px 25px;
 }
+
 .track-table td {
   font-size: 1rem;
 }
+
 /* Delivery Details */
 .issue {
   display: flex;
@@ -193,16 +226,17 @@ h5 {
 
 /* warning */
 .warning-container {
-  margin: 50px 100px;
+  margin: 0 100px;
+}
+
+.warning {
+  color: var(--red);
+  margin-top: -2px;
 }
 
 .warning-msg {
   display: flex;
-}
-
-.warning {
-  color: red;
-  margin-top: -2px;
+  justify-content: center;
 }
 
 /* MQ */
@@ -247,20 +281,6 @@ h5 {
   .issue {
     justify-content: center;
   }
-}
-
-/* .transitionStep {
-  filter: grayscale(0);
-}
-
-.transitionStep.accomplished {
-  filter: grayscale(0);
-} */
-
-.indexedStep {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 730px) {

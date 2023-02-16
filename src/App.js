@@ -4,10 +4,8 @@ import { useTranslation } from "react-i18next";
 
 function App() {
   const { i18n } = useTranslation();
-  // const changeLanguage = (lng) => {
-  //   i18n.changeLanguage(lng);
-  // };
-document.body.dir = i18n.dir()
+
+  document.body.dir = i18n.dir();
   return (
     <div className="App">
       <Track />

@@ -7,12 +7,14 @@ import DeliveryDetails from "./DeliveryDetails";
 import TrackSVG from "./TrackSVG";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Toast from "react-bootstrap/Toast";
 import { useTranslation } from "react-i18next";
 
 const Track = () => {
   const [inputValue, setInputValue] = useState("");
   const [inputNo, setInputNo] = useState("");
   const [fetchedData, setFetchedData] = useState("");
+  const [showToast, setShowToast] = useState(false);
   const trackApi = `https://tracking.bosta.co/shipments/track/${inputNo}`;
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const Track = () => {
       setInputValue("");
       // console.log(inputNo);
     } else {
-      alert("Invalid number");
+      setShowToast(true);
       setInputValue("");
     }
   };
@@ -80,7 +82,7 @@ const Track = () => {
             }}
           />
           <Button
-          className="search-btn"
+            className="search-btn"
             variant="danger"
             onClick={searchBtn}
             disabled={!inputValue}
@@ -93,14 +95,24 @@ const Track = () => {
           </Button>
         </div>
       </div>
+          <Toast
+            onClose={() => setShowToast(false)}
+            show={showToast}
+            delay={2000}
+            autohide
+          >
+            <Toast.Header>
+              <strong className="me-auto">{t('inpterr')}</strong>
+            </Toast.Header>
+          </Toast>
       {fetchedData.error ? (
         <div className="center warning-container">
-          <h5>Tracking No. {inputNo}</h5>
+          <h5>
+            {t("trno")} {inputNo}
+          </h5>
           <p className="warning-msg">
-            <span className="material-symbols-sharp warning">error</span>No
-            record of this tracking number can be found at this time, please
-            check the number and try again later. For further assistance, please
-            contact Customer Service.
+            <span className="material-symbols-sharp warning">error</span>
+            {t("error")}
           </p>
           <TrackSVG />
         </div>

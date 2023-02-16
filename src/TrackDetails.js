@@ -11,7 +11,6 @@ const TrackDetails = ({
 
   const parseDate = (input) => {
     var parts = input.split("-");
-    // Note: months are 0-based
     return new Date(parts[2], parts[1] - 1, parts[0]);
   };
 
@@ -19,9 +18,9 @@ const TrackDetails = ({
     return date.toLocaleDateString(locale, { weekday: "long" });
   };
 
-  if (fetchedData) {
-    console.log(fetchedData);
-  }
+  // if (fetchedData) {
+  //   console.log(fetchedData);
+  // }
   const { t, i18n } = useTranslation();
 
   return (
@@ -51,8 +50,9 @@ const TrackDetails = ({
               {t(status.state)}
             </td>
             <td>
-              {t(getDayName(parseDate(handleDate(status.timestamp))))}{'\u00A0'}
-              {handleDate(status.timestamp)} {t("at")}{' '}
+              {t(getDayName(parseDate(handleDate(status.timestamp))))}
+              {"\u00A0"}
+              {handleDate(status.timestamp)} {t("at")}{" "}
               {i18n.language === "ar"
                 ? handleTime(status.timestamp).split(" ")
                 : handleTime(status.timestamp)}

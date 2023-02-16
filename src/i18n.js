@@ -41,6 +41,7 @@ const resources = {
       WAITING_FOR_CUSTOMER_ACTION: "WAITING FOR CUSTOMER ACTION",
       DELIVERED: "DELIVERED",
       DELIVERED_TO_SENDER: "DELIVERED TO SENDER",
+      reason: "Postponed - The customer asked to postpone delivery",
       at: "at",
       Saturday: "Saturday",
       Sunday: "Sunday",
@@ -53,7 +54,10 @@ const resources = {
       address:
         "Embaba, Talaat Harb st., El'Omal city, next to Elbrens. House no. 17, block 33, Cairo",
       issue: "Facing an issue with your package?!",
-        rprt: "Report a problem",
+      rprt: "Report a problem",
+      error:
+        "No record of this tracking number can be found at this time, please check the number and try again later. For further assistance, please contact Customer Service.",
+      inpterr: "Invalid tracking number, only numbers are allowed",
     },
   },
   ar: {
@@ -93,6 +97,7 @@ const resources = {
       WAITING_FOR_CUSTOMER_ACTION: "في انتظار تأكيد العميل",
       DELIVERED: "تم التسليم",
       DELIVERED_TO_SENDER: "تم التسليم للتاجر",
+      reason: "تأجيل - العميل طلب التأجيل ليوم آخر",
       at: "الساعة",
       Saturday: "السبت",
       Sunday: "الأحد",
@@ -104,8 +109,11 @@ const resources = {
       "Delivery Address": "عنوان التسليم",
       address:
         "امبابة شارع طلعت حرب مدينة العمال بجوار البرنس منزل ١٧ بلوك ٣٣ القاهرة",
-        issue: "هل يوجد مشكلة في شحنتك؟!",
-        rprt: "إبلاغ عن مشكلة",
+      issue: "هل يوجد مشكلة في شحنتك؟!",
+      rprt: "إبلاغ عن مشكلة",
+      error:
+        "لا يمكن العثور على أي سجل لرقم التتبع هذا في الوقت الحالي، يرجى التحقق من الرقم والمحاولة مرة أخرى. لمزيد من المساعدة، يرجى الاتصال بخدمة العملاء.",
+      inpterr: "رقم التتبع غير صالح، يسمح فقط بالأرقام",
     },
   },
 };
